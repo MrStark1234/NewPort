@@ -1,0 +1,169 @@
+/* Section head */
+.contact {
+  padding: 5rem 0 4rem;
+  position: relative;
+}
+.ct-head {
+  display: flex;
+  flex-direction: column;
+  max-width: 960px;
+  margin: 0 auto 1.5rem;
+  padding: 0 2rem;
+  text-align: center;
+}
+
+.ct-tag {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 6rem;
+  height: 2.5rem;
+  border-radius: 50px;
+  background: linear-gradient(to right, #656565, #7f42a7, #6600c5);
+  background-size: 200%;
+  animation: animationGradient 2.5s linear infinite;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+.ct-tag span {
+  display: grid;
+  place-items: center;
+  height: calc(100% - 6px);
+  padding: 0 0.9rem;
+  border-radius: 999px;
+  background: #000;
+  color: #e7e7e7;
+}
+
+.ct-title {
+  font-size: clamp(1.6rem, 3.2vw, 2.4rem);
+  font-weight: 700;
+  margin: 1rem 0 0.5rem;
+  text-shadow: 0 0 10px rgba(128, 128, 128, 0.35);
+}
+.ct-sub {
+  color: #bcbcbc;
+  max-width: 65ch;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Form wrapper */
+.ct-form {
+  max-width: 960px;
+  border: 2px solid transparent;
+  border-image: linear-gradient(135deg, #18006d, #3b1cff, #b3a2ff) 1;
+  margin: 1rem auto 0;
+  padding: 1rem 2rem;
+  border-radius: 16px;
+  background: rgba(14, 14, 14, 0.6);
+}
+@supports (backdrop-filter: blur(10px)) {
+  .ct-form {
+    backdrop-filter: blur(14px) saturate(140%);
+    -webkit-backdrop-filter: blur(14px) saturate(140%);
+  }
+}
+
+/* 2-column rows (flex) */
+.ct-row {
+  display: flex;
+  gap: 1rem;
+}
+.ct-row .ct-field {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Fields */
+.ct-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin: 0.6rem 0;
+}
+.ct-field label {
+  font-size: 0.95rem;
+  color: #e7e7e7;
+}
+.ct-field input,
+.ct-field textarea {
+  color: #e7e7e7;
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 0.8rem 0.9rem;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease,
+    background-color 0.2s ease;
+}
+.ct-field textarea {
+  resize: vertical;
+}
+
+.ct-field input::placeholder,
+.ct-field textarea::placeholder {
+  color: #9b9b9b;
+}
+
+/* Focus states */
+.ct-field input:focus,
+.ct-field textarea:focus {
+  border-color: rgba(139, 92, 246, 0.6);
+  box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.18);
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+/* Actions */
+.ct-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-top: 0.8rem;
+  flex-wrap: wrap;
+}
+.ct-send {
+  cursor: pointer;
+  background: linear-gradient(135deg, #18006d, #3b1cff, #b3a2ff) border-box;
+  border: 1px solid transparent;
+  color: #000;
+  padding: 0.7rem 1.2rem;
+  border-radius: 999px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+}
+.ct-send:hover {
+  background: linear-gradient(135deg, #2400a5, #2808fd, #998bdb);
+}
+.ct-send:active {
+  transform: translateY(1px);
+}
+
+.ct-note {
+  color: #9b9b9b;
+  font-size: 0.9rem;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  .ct-form {
+    padding: 1rem;
+  }
+  .ct-row {
+    flex-direction: column;
+  }
+  .ct-actions {
+    justify-content: flex-start;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .ct-form,
+  .ct-field input,
+  .ct-field textarea,
+  .ct-send {
+    transition: none;
+  }
+}

@@ -1,0 +1,212 @@
+/* About: layout */
+.about-section {
+  padding: 4.5rem 0 4rem;
+  position: relative;
+}
+.about-head {
+  display: flex;
+  flex-direction: column;
+  max-width: 920px;
+  margin: 0 auto 1.75rem;
+  padding: 0 2rem;
+}
+
+.about-tag {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 7rem;
+  height: 2.5rem;
+  border-radius: 50px;
+  background: linear-gradient(to right, #656565, #7f42a7, #6600c5);
+  background-size: 200%;
+  animation: animationGradient 2.5s linear infinite;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+.about-tag span {
+  display: flex;
+  justify-content: center;
+  height: calc(100% - 6px);
+  padding: 0 0.9rem;
+  border-radius: 999px;
+  background: #000;
+  color: #e7e7e7;
+}
+
+.about-title {
+  font-size: clamp(1.6rem, 3.2vw, 2.4rem);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  margin: 1rem 0 0.5rem;
+  text-shadow: 0 0 10px rgba(128, 128, 128, 0.35);
+}
+.about-sub {
+  color: #bcbcbc;
+  max-width: 65ch;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.about-pills {
+  list-style: none;
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 1rem;
+  padding: 0 1rem;
+}
+.about-pills li {
+  font-size: 0.9rem;
+  padding: 0.4rem 0.7rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #18006d, #3b1cff, #b3a2ff) border-box;
+  border: 1px solid transparent;
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Grid that adapts without many breakpoints */
+.about-grid {
+  display: grid;
+  gap: 1.1rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  max-width: 1100px;
+  margin: 1.25rem auto 0;
+  padding: 0 2rem;
+}
+.about-bio {
+  grid-column: span 2;
+}
+@media (max-width: 720px) {
+  .about-bio {
+    grid-column: span 1;
+  }
+}
+
+.about-points {
+  list-style: none;
+  display: grid;
+  gap: 0.5rem;
+  margin: 0.75rem 0 1rem;
+  color: #d8d8d8;
+}
+.about-points li {
+  position: relative;
+  padding-left: 1.1rem;
+}
+.about-points li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #7f42a7;
+}
+
+/* Glass cards (with graceful fallback) */
+.card {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  background: rgba(14, 14, 14, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  transition: transform 0.25s ease, border-color 0.25s ease,
+    box-shadow 0.25s ease;
+  padding: 1rem;
+}
+@supports (backdrop-filter: blur(10px)) {
+  .card {
+    backdrop-filter: blur(14px) saturate(140%);
+    -webkit-backdrop-filter: blur(14px) saturate(140%);
+  }
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+}
+.card h3 {
+  font-size: 1.05rem;
+  margin-bottom: 0.35rem;
+  letter-spacing: 0.01em;
+}
+.card p {
+  color: #bdbdbd;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.about-skill {
+  border: 2px solid transparent;
+  border-image: linear-gradient(135deg, #18006d, #3b1cff, #b3a2ff) 1;
+}
+
+.about-skill .icon {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  margin-bottom: 0.6rem;
+  color: #e7e7e7;
+  background: radial-gradient(
+    120% 120% at 30% 20%,
+    rgba(139, 92, 246, 0.35),
+    rgba(6, 182, 212, 0.15) 60%,
+    rgba(236, 72, 153, 0.2)
+  );
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* CTA buttons (lean variants to avoid conflicts) */
+
+.btn-primary {
+  text-decoration: none;
+  background: linear-gradient(135deg, #18006d, #3b1cff, #b3a2ff) border-box;
+  border: 1px solid transparent;
+  color: #000;
+  padding: 0.6rem 1.2rem;
+  border-radius: 999px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #2400a5, #2808fd, #998bdb);
+}
+
+/* Highlights */
+.about-highlights {
+  max-width: 1000px;
+  margin: 2rem auto 0;
+  padding: 0 2rem;
+  display: grid;
+  gap: 0.8rem;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+}
+.hl {
+  display: grid;
+  place-items: center;
+  gap: 0.2rem;
+  padding: 1rem;
+  border-radius: 14px;
+
+  background: linear-gradient(135deg, #18006d, #3b1cff, #b3a2ff) border-box;
+  border: 1px solid transparent;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.hl:hover {
+  background: linear-gradient(135deg, #2400a5, #2808fd, #998bdb);
+}
+.n {
+  font-size: clamp(1.4rem, 3vw, 1.8rem);
+  font-weight: 800;
+}
+.k {
+  color: #bcbcbc;
+  font-size: 0.95rem;
+}

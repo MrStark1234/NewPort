@@ -1,0 +1,143 @@
+.tms {
+  padding: 4rem 0;
+  margin: 10rem;
+}
+.tms-head {
+  max-width: 960px;
+  margin: 0 auto 1rem;
+  padding: 0 1.5rem;
+  text-align: center;
+}
+.tms-tag {
+  display: inline-grid;
+  place-items: center;
+  width: 8rem;
+  height: 2.2rem;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #656565, #7f42a7, #6600c5);
+  background-size: 200%;
+  animation: tmsGrad 2.5s linear infinite;
+}
+.tms-tag span {
+  display: grid;
+  place-items: center;
+  height: calc(100% - 6px);
+  padding: 0 0.8rem;
+  border-radius: 999px;
+  background: #000;
+  color: #e7e7e7;
+}
+.tms-title {
+  font-size: clamp(1.6rem, 3.2vw, 2.2rem);
+  font-weight: 700;
+  margin-top: 0.8rem;
+}
+
+.tms-wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0 1rem;
+}
+.tms-btn {
+  flex: 0 0 auto;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #18006d, #3b1cff, #b3a2ff) border-box;
+  border: 1px solid transparent;
+  color: #e7e7e7;
+  cursor: pointer;
+}
+.tms-btn:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+.tms-btn:hover:not(:disabled) {
+  background: rgba(34, 34, 34, 0.85);
+}
+
+.tms-track {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  padding: 0.25rem 0;
+  scrollbar-width: none;
+}
+.tms-track::-webkit-scrollbar {
+  height: 0;
+}
+
+.tms-item {
+  scroll-snap-align: center;
+  flex: 0 0 calc((min(1100px, 92vw) - 4rem) / 3);
+  min-width: 260px;
+  max-width: 360px;
+  border: 2px solid transparent;
+  border-image: linear-gradient(135deg, #18006d, #3b1cff, #b3a2ff) 1;
+  border-radius: 16px;
+  background: rgba(14, 14, 14, 0.6);
+  padding: 1rem;
+}
+.tms-user {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.5rem;
+}
+.tms-user img {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+.tms-user h3 {
+  font-size: 1rem;
+}
+.tms-user p {
+  font-size: 0.9rem;
+  color: #bdbdbd;
+}
+.tms-quote {
+  color: #d8d8d8;
+  line-height: 1.6;
+}
+
+@media (max-width: 1024px) {
+  .tms-item {
+    flex-basis: calc((min(900px, 92vw) - 3rem) / 2);
+    max-width: 420px;
+  }
+}
+@media (max-width: 640px) {
+  .tms-wrap {
+    gap: 0.25rem;
+  }
+  .tms-item {
+    flex-basis: 85vw;
+    min-width: 280px;
+    max-width: 520px;
+  }
+  .tms-btn {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tms-track {
+    scroll-behavior: auto;
+  }
+}
+
+@keyframes tmsGrad {
+  to {
+    background-position: 200%;
+  }
+}

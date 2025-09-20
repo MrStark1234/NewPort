@@ -1,0 +1,114 @@
+.site-foot {
+  margin-top: 3rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(14, 14, 14, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.foot-wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem;
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.foot-brand {
+  min-width: 220px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.foot-logo {
+  text-decoration: none;
+  color: #e7e7e7;
+  font-size: 1.4rem;
+  letter-spacing: 0.12em;
+}
+.foot-tag {
+  color: #919191;
+  font-size: 14px;
+}
+
+.foot-nav {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.foot-col h3 {
+  font-size: 1rem;
+  margin-bottom: 0.6rem;
+}
+.foot-col ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+.foot-col a {
+  color: #919191;
+  text-decoration: none;
+  font-size: 14px;
+}
+.foot-col a:hover {
+  color: #ffffff;
+}
+
+.foot-bar {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  flex-wrap: wrap;
+}
+.foot-bar p {
+  color: #919191;
+  font-size: 14px;
+}
+
+.foot-social {
+  list-style: none;
+  display: flex;
+  gap: 0.6rem;
+  padding: 0;
+  margin: 0;
+}
+.foot-social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  color: #e7e7e7;
+  text-decoration: none;
+  background: linear-gradient(135deg, #18006d, #3b1cff, #b3a2ff) border-box;
+  border: 1px solid transparent;
+  transition: background-color 0.2s ease, border-color 0.2s ease,
+    transform 0.15s ease;
+}
+.foot-social a:hover {
+  background: linear-gradient(135deg, #2400a5, #2808fd, #998bdb);
+
+  transform: translateY(-1px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .foot-wrap {
+    padding: 1.5rem;
+  }
+  .foot-bar {
+    padding: 1rem 1.5rem;
+    justify-content: center;
+  }
+  .foot-nav {
+    justify-content: center;
+  }
+}
