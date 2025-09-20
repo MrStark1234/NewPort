@@ -164,7 +164,7 @@
 
 .btn-primary {
   text-decoration: none;
-  background: linear-gradient(135deg, #18006d, #3b1cff, #b3a2ff) border-box;
+  background-color: lightgray;
   border: 1px solid transparent;
   color: #000;
   padding: 0.6rem 1.2rem;
@@ -174,7 +174,7 @@
 }
 
 .btn-primary:hover {
-  background: linear-gradient(135deg, #2400a5, #2808fd, #998bdb);
+  background-color: rgb(173, 172, 172);
 }
 
 /* Highlights */
