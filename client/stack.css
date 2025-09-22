@@ -1,0 +1,120 @@
+.stack-xl {
+  padding: 4rem 0;
+}
+.stack-xl-head {
+  display: flex;
+  flex-direction: column;
+  max-width: 960px;
+  margin: 0 auto 1.25rem;
+  padding: 0 2rem;
+  text-align: center;
+}
+
+.stack-xl-tag {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 7.2rem;
+  height: 2.5rem;
+  border-radius: 50px;
+  background: linear-gradient(to right, #656565, #7f42a7, #6600c5);
+  background-size: 200%;
+  animation: animationGradient 2.5s linear infinite;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+.stack-xl-tag span {
+  display: grid;
+  place-items: center;
+  height: calc(100% - 6px);
+  padding: 0 0.9rem;
+  border-radius: 999px;
+  background: #000;
+  color: #e7e7e7;
+}
+
+.stack-xl-title {
+  font-size: clamp(1.6rem, 3.2vw, 2.3rem);
+  font-weight: 700;
+  margin-top: 0.9rem;
+  text-shadow: 0 0 10px rgba(128, 128, 128, 0.35);
+}
+
+.stack-xl-row {
+  max-width: 1200px;
+  margin: 1rem auto 0;
+  padding: 0 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+/* Large logo tile */
+.stack-xl-item {
+  position: relative;
+  width: clamp(160px, 22vw, 220px);
+  height: clamp(120px, 16vw, 160px);
+  border-radius: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: #e7e7e7;
+
+  /* glass + gradient border (border-box trick) */
+  background: linear-gradient(#0a0a0a, #0a0a0a) padding-box,
+    linear-gradient(135deg, #18006d, #3b1cff, #b3a2ff) border-box;
+  border: 1px solid transparent;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+  will-change: transform;
+  overflow: hidden;
+}
+
+/* subtle inner shine */
+.stack-xl-item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    80% 60% at 50% 0%,
+    rgba(255, 255, 255, 0.08),
+    transparent 60%
+  );
+  pointer-events: none;
+}
+
+.stack-xl-item i {
+  font-size: clamp(44px, 6vw, 64px);
+  line-height: 1;
+}
+.stack-xl-item span {
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+
+/* Hover animations: lift + tilt + glow */
+.stack-xl-item:hover {
+  transform: translateY(-6px) rotateX(6deg) rotateY(-6deg) scale(1.04);
+  box-shadow: 0 20px 60px rgba(24, 0, 109, 0.35);
+  filter: saturate(1.15);
+}
+
+/* Motion safety */
+@media (prefers-reduced-motion: reduce) {
+  .stack-xl-item {
+    transition: none;
+  }
+  .stack-xl-item:hover {
+    transform: none;
+  }
+}
+
+/* Tag gradient animation */
+@keyframes stackGrad {
+  to {
+    background-position: 200%;
+  }
+}

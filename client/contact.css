@@ -145,10 +145,22 @@
   font-size: 0.9rem;
 }
 
+.ct-status {
+  margin-left: 0.75rem;
+  font-size: 0.95rem;
+}
+.ct-status.success {
+  color: #22c55e;
+} /* green */
+.ct-status.error {
+  color: #f97316;
+} /* orange/red */
+
 /* Responsiveness */
 @media (max-width: 768px) {
   .ct-form {
     padding: 1rem;
+    margin: 1rem;
   }
   .ct-row {
     flex-direction: column;

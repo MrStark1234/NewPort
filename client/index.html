@@ -8,12 +8,16 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="about.css">
     <link rel="stylesheet" href="banner.css">
-
+    <link rel="stylesheet" href="stack.css">
     <link rel="stylesheet" href="testimonial.css">
     <link rel="stylesheet" href="contact.css">
     <link rel="stylesheet" href="footer.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script> -->
 </head>
 
 <body>
@@ -187,6 +191,48 @@
         </div>
     </div>
 
+    <section class="stack-xl" id="stack">
+        <header class="stack-xl-head">
+            <div class="stack-xl-tag" data-aos="fade-right" data-aos-duration="900"><span>Tech Stack |</span></div>
+            <h2 class="stack-xl-title" data-aos="fade-left" data-aos-duration="900">Tools & frameworks</h2>
+        </header>
+
+        <div class="stack-xl-row">
+            <a class="stack-xl-item" data-aos="fade-right" data-aos-duration="1500" href="#" aria-label="React"><i
+                    class="devicon-react-original colored"></i><span>React</span></a>
+            <a class="stack-xl-item" data-aos="fade-right" data-aos-duration="1500" href="#" aria-label="Node.js"><i
+                    class="devicon-nodejs-plain colored"></i><span>Node.js</span></a>
+            <a class="stack-xl-item" data-aos="fade-right" data-aos-duration="1500" href="#" aria-label="Express"><i
+                    class="devicon-express-original"></i><span>Express</span></a>
+            <a class="stack-xl-item" data-aos="fade-right" data-aos-duration="1500" href="#" aria-label="MongoDB"><i
+                    class="devicon-mongodb-plain colored"></i><span>MongoDB</span></a>
+            <a class="stack-xl-item" data-aos="fade-left" data-aos-duration="1500" href="#" aria-label="JavaScript"><i
+                    class="devicon-javascript-plain"></i><span>JavaScript</span></a>
+            <a class="stack-xl-item" data-aos="fade-left" data-aos-duration="1500" href="#" aria-label="TypeScript"><i
+                    class="devicon-typescript-plain colored"></i><span>TypeScript</span></a>
+            <a class="stack-xl-item" data-aos="fade-left" data-aos-duration="1500" href="#" aria-label="Next.js"><i
+                    class="devicon-nextjs-original-wordmark"></i><span>Next.js</span></a>
+            <a class="stack-xl-item" data-aos="fade-left" data-aos-duration="1500" href="#" aria-label="Tailwind CSS"><i
+                    class="devicon-tailwindcss-plain colored"></i><span>Tailwind</span></a>
+            <a class="stack-xl-item" data-aos="fade-right" data-aos-duration="1500" href="#" aria-label="GitHub"><i
+                    class="devicon-github-original"></i><span>GitHub</span></a>
+            <a class="stack-xl-item" data-aos="fade-right" data-aos-duration="1500" href="#" aria-label="Docker"><i
+                    class="devicon-docker-plain-wordmark"></i><span>Docker</span></a>
+            <a class="stack-xl-item" data-aos="fade-right" data-aos-duration="1500" href="#" aria-label="AWS"><i
+                    class="devicon-amazonwebservices-plain-wordmark colored"></i><span>AWS</span></a>
+            <a class="stack-xl-item" data-aos="fade-right" data-aos-duration="1500" href="#" aria-label="HTML-5"><i
+                    class="devicon-html5-plain colored"></i><span>HTML-5</span></a>
+            <a class="stack-xl-item" data-aos="fade-left" data-aos-duration="1500" href="#" aria-label="Sass"><i
+                    class="devicon-sass-original colored"></i><span>Sass</span></a>
+            <a class="stack-xl-item" data-aos="fade-left" data-aos-duration="1500" href="#" aria-label="Jasmine"><i
+                    class="devicon-jasmine-original colored"></i><span>Jasmine</span></a>
+            <a class="stack-xl-item" data-aos="fade-left" data-aos-duration="1500" href="#" aria-label="Jest"><i
+                    class="devicon-jest-plain colored"></i><span>Jest</span></a>
+        </div>
+    </section>
+
+
+
 
     <section class="tms" id="testimonials">
         <div class="tms-head">
@@ -195,7 +241,7 @@
         </div>
 
         <div data-aos="fade-up" data-aos-duration="3000" class="tms-wrap">
-            <button class="tms-btn tms-prev" aria-label="Prev">‹</button>
+
 
             <div class="tms-track" aria-live="polite">
                 <article class="tms-item">
@@ -293,8 +339,12 @@
                     </p>
                 </article>
             </div>
+            <div class="tms-controls">
+                <button class="tms-btn tms-prev" aria-label="Prev">‹</button>
+                <button class="tms-btn tms-next" aria-label="Next">›</button>
+            </div>
 
-            <button class="tms-btn tms-next" aria-label="Next">›</button>
+
         </div>
 
 
@@ -308,46 +358,48 @@
             <p class="ct-sub">Fill the form and expect a reply within 24–48 hours.</p>
         </header>
 
-        <form class="ct-form" data-aos="fade-up" data-aos-duration="900" novalidate>
+        <form class="ct-form" id="contact-form" data-aos="fade-up" data-aos-duration="900" novalidate>
             <div class="ct-row">
                 <div class="ct-field">
-                    <label for="ct-name">Name</label>
-                    <input id="ct-name" name="name" type="text" placeholder="e.g., Suraj Singhal" autocomplete="name"
+                    <label for="name">Name</label>
+                    <input id="name" name="name" type="text" placeholder="e.g., Suraj Singhal" autocomplete="name"
                         required>
                 </div>
 
                 <div class="ct-field">
-                    <label for="ct-email">Email</label>
-                    <input id="ct-email" name="email" type="email" placeholder="e.g., suraj@email.com"
-                        autocomplete="email" required>
+                    <label for="email">Email</label>
+                    <input id="email" name="email" type="email" placeholder="e.g., suraj@email.com" autocomplete="email"
+                        required>
                 </div>
             </div>
 
             <div class="ct-row">
                 <div class="ct-field">
-                    <label for="ct-phone">Phone</label>
-                    <input id="ct-phone" name="phone" type="tel" placeholder="+91 98765 43210" autocomplete="tel"
+                    <label for="phone">Phone</label>
+                    <input id="phone" name="phone" type="tel" placeholder="+91 98765 43210" autocomplete="tel"
                         inputmode="tel">
                 </div>
 
                 <div class="ct-field">
-                    <label for="ct-subject">Subject</label>
-                    <input id="ct-subject" name="subject" type="text" placeholder="Project, collaboration, etc.">
+                    <label for="subject">Subject</label>
+                    <input id="subject" name="subject" type="text" placeholder="Project, collaboration, etc.">
                 </div>
             </div>
 
             <div class="ct-field">
-                <label for="ct-message">Message</label>
-                <textarea id="ct-message" name="message" rows="5"
-                    placeholder="Tell a bit about your project or query..." required></textarea>
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" placeholder="Tell a bit about your project or query..."
+                    required></textarea>
             </div>
 
             <div class="ct-actions">
                 <button class="ct-send" type="submit">Send message</button>
+                <p class="ct-status" role="status" aria-live="polite" hidden></p>
                 <p class="ct-note">By sending, agree to be contacted via email/phone.</p>
             </div>
         </form>
     </section>
+
 
 
     <footer class="site-foot" id="footer">

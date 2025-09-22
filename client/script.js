@@ -1,88 +1,91 @@
 // testimonials-simple.js
-(function () {
-  const root = document.querySelector(".tms");
-  if (!root) return;
-  const track = root.querySelector(".tms-track");
-  const prev = root.querySelector(".tms-prev");
-  const next = root.querySelector(".tms-next");
+const track = document.querySelector(".tms-track");
+const items = document.querySelectorAll(".tms-item");
+const prevBtn = document.querySelector(".tms-prev");
+const nextBtn = document.querySelector(".tms-next");
 
-  if (!track || !prev || !next) return;
+let index = 0;
 
-  const items = Array.from(track.querySelectorAll(".tms-item"));
-  if (items.length === 0) return;
+function updateCarousel() {
+  track.style.transform = `translateX(-${index * 100}%)`;
+}
 
-  // Build dots
-  items.forEach((_, i) => {
-    const b = document.createElement("button");
-    b.type = "button";
-    b.setAttribute("aria-label", `Go to slide ${i + 1}`);
-    b.addEventListener("click", () => {
-      const x =
-        items[i].offsetLeft -
-        (track.clientWidth / 2 - items[i].clientWidth / 2);
-      track.scrollTo({
-        left: x,
-        behavior: prefersReduced() ? "auto" : "smooth",
-      });
-    });
-  });
+nextBtn.addEventListener("click", () => {
+  index = (index + 1) % items.length;
+  updateCarousel();
+});
 
-  function prefersReduced() {
-    return (
-      window.matchMedia &&
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches
-    );
-  }
-
-  function stepWidth() {
-    // Approx step = first card width + gap
-    const first = items[0];
-    const gap = parseFloat(getComputedStyle(track).gap || 16);
-    return first.clientWidth + gap;
-  }
-
-  function scrollByCards(dir) {
-    track.scrollBy({
-      left: dir * stepWidth(),
-      behavior: prefersReduced() ? "auto" : "smooth",
-    });
-  }
-
-  function activeIndex() {
-    // Find the card whose center is closest to track center
-    const center = track.scrollLeft + track.clientWidth / 2;
-    let idx = 0,
-      best = Infinity;
-    items.forEach((el, i) => {
-      const elCenter = el.offsetLeft + el.clientWidth / 2;
-      const d = Math.abs(center - elCenter);
-      if (d < best) {
-        best = d;
-        idx = i;
-      }
-    });
-    return idx;
-  }
-
-  function updateUI() {
-    const idx = activeIndex();
-    const max = track.scrollWidth - track.clientWidth - 1;
-    prev.disabled = track.scrollLeft <= 0;
-    next.disabled = track.scrollLeft >= max;
-  }
-
-  prev.addEventListener("click", () => scrollByCards(-1));
-  next.addEventListener("click", () => scrollByCards(1));
-  track.addEventListener("scroll", () => requestAnimationFrame(updateUI), {
-    passive: true,
-  });
-  window.addEventListener("resize", () => requestAnimationFrame(updateUI));
-
-  // Initial center to first item
-  const x0 =
-    items[0].offsetLeft - (track.clientWidth / 2 - items[0].clientWidth / 2);
-  track.scrollLeft = x0 > 0 ? x0 : 0;
-  updateUI();
-})();
+prevBtn.addEventListener("click", () => {
+  index = (index - 1 + items.length) % items.length;
+  updateCarousel();
+});
 
 document.getElementById("year").textContent = new Date().getFullYear();
+
+// emailjs-contact.js (replace the then/catch/finally block)
+(function () {
+  emailjs.init("3OzsoZJrQiSXc5pyQ");
+
+  const form = document.getElementById("contact-form");
+  if (!form) return;
+
+  const btn = form.querySelector(".ct-send");
+  const statusEl = form.querySelector(".ct-status");
+
+  const showStatus = (msg, type) => {
+    if (!statusEl) return;
+    statusEl.textContent = msg;
+    statusEl.hidden = false;
+    statusEl.classList.remove("success", "error");
+    statusEl.classList.add(type);
+    // auto-hide after 5s
+    clearTimeout(showStatus._t);
+    showStatus._t = setTimeout(() => {
+      statusEl.hidden = true;
+    }, 5000);
+  };
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const name = document.getElementById("name")?.value?.trim();
+    const email = document.getElementById("email")?.value?.trim();
+    const phone = document.getElementById("phone")?.value?.trim();
+    const subject = document.getElementById("subject")?.value?.trim();
+    const message = document.getElementById("message")?.value?.trim();
+
+    if (!name || !email || !message) {
+      showStatus("Please fill name, email, and message.", "error");
+      return;
+    }
+
+    if (btn) {
+      btn.disabled = true;
+      btn.textContent = "Sending…";
+    }
+
+    const params = {
+      "user-name": name,
+      "user-email": email,
+      "user-number": phone || "",
+      "user-subject": subject || "",
+      message: message,
+    };
+
+    emailjs
+      .send("service_f9fayf8", "template_rbjkopp", params)
+      .then(() => {
+        showStatus("Thanks! Message sent successfully.", "success");
+        form.reset();
+      })
+      .catch(() => {
+        showStatus("Could not send. Please try again.", "error");
+      })
+      .finally(() => {
+        if (btn) {
+          btn.disabled = false;
+          btn.textContent = "Send message";
+        }
+      });
+  });
+})();
