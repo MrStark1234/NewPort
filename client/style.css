@@ -95,6 +95,9 @@ nav a:hover {
 .btn-contact {
   text-decoration: none;
   color: white;
+  position: relative;
+  z-index: 20;
+  pointer-events: auto;
 }
 
 main {
