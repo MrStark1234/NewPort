@@ -42,7 +42,7 @@
 .stack-xl-row {
   max-width: 1200px;
   margin: 1rem auto 0;
-  padding: 0 2rem;
+  padding: 0 1rem;
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
@@ -68,8 +68,6 @@
     linear-gradient(135deg, #18006d, #3b1cff, #b3a2ff) border-box;
   border: 1px solid transparent;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
-  transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
-  will-change: transform;
   overflow: hidden;
 }
 
@@ -96,10 +94,8 @@
 }
 
 /* Hover animations: lift + tilt + glow */
-.stack-xl-item:hover {
-  transform: translateY(-6px) rotateX(6deg) rotateY(-6deg) scale(1.04);
-  box-shadow: 0 20px 60px rgba(24, 0, 109, 0.35);
-  filter: saturate(1.15);
+.stack-xl-row .stack-xl-item:hover {
+  box-shadow: 0 40px 80px rgba(24, 0, 109, 0.35);
 }
 
 /* Motion safety */
@@ -109,12 +105,5 @@
   }
   .stack-xl-item:hover {
     transform: none;
-  }
-}
-
-/* Tag gradient animation */
-@keyframes stackGrad {
-  to {
-    background-position: 200%;
   }
 }

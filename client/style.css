@@ -92,7 +92,7 @@ nav a:hover {
 .btn-contact:hover {
   background: linear-gradient(135deg, #2400a5, #2808fd, #998bdb);
 }
-.btn-contact a {
+.btn-contact {
   text-decoration: none;
   color: white;
 }
